@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myInput" placeholder="Ievadi tekstu šeit">
+    <button id="myButton">Parādīt vērtību</button>
+
+    <script>
+      
+        console.log("Edgars");
+        function printName() {
+            console.log("Tavs vārds");
+        }
+        function showInputValue() {
+            const inputElement = document.querySelector('Sis');
+            console.log(inputElement.value); 
+        }
+        const button = document.querySelector('#myButton');
+        button.addEventListener('click', printName);
+        button.addEventListener('click', showInputValue);
+    </script>
+    </script>
+  </body>
+</html>

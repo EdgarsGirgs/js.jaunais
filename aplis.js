@@ -46,7 +46,7 @@ let inputString = "sveiki";
 
 function reverseString(str) {
     // izmantot reverse metodi
-    return 
+    return ...
 }
 
 console.log("Oriģināls: " + inputString);
