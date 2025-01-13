@@ -12,7 +12,7 @@
     <input type="number" id="num2" placeholder="2" />
     <button id="btnCalc">Rēķināt</button>
     <button>Notīrīt</button>
-    <p id="outpur"></p>
+    <p id="output"></p>
 
     <script>
       const btnCalc = document.getElementById("btnCalc");
@@ -29,10 +29,16 @@
         let operatorValue = operatorInput.value;
         let secondNumberValue = parseFloatsecondNumberInput.value;
 
-        // let result = calculateResult(FirstNumberValue,secondNumberValue);
-        //  let result;
+        let result = calculateResult(
+          FirstNumberValue,
+          secondNumberValue,
+          operatorValue
+        );
 
-        outputContainer.innerHTML = result;
+        outputContainer.innerHTML = `Rezultāts$(res)`;
+        FirstNumberInput.value = "";
+        operatorInput.value = "";
+        secondNumberInput.value = "";
       }
 
       function calculateResult(n1, n2, op) {
@@ -57,6 +63,7 @@
             console.log("operators nederīgs");
             break;
         }
+        DisplayResult(res);
       }
     </script>
   </body>
