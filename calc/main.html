@@ -12,6 +12,7 @@
     <input type="number" id="num2" placeholder="2" />
     <button id="btnCalc">Rēķināt</button>
     <button>Notīrīt</button>
+    <p id = outpur></p>
 
     <script>
       const btnCalc = document.getElementById("btnCalc");
@@ -19,7 +20,9 @@
       const FirstNumberInput = document.getElementById("");
       const operatorInput = document.getElementById("");
       const secondNumberInput = document.getElementById("");
+      const outputContainer = document.getElementById("output");
       btnCalc.addEventListener("click", handleClick);
+
       function handleClick() {
         console.log("clicked");
         let FirstNumberValue = parseFloatFirstNumberInput.value;
@@ -45,9 +48,11 @@
             break;
 
           default:
+            
             console.log("operators nederīgs");
             break;
         }
+        outputContainer.innerHTML = result
       }
     </script>
   </body>
