@@ -10,7 +10,16 @@
     <input type="text" placeholder="1" />
     <input type="text" placeholder="darbiba" />
     <input type="text" placeholder="2" />
-    <button>Rēķināt</button>
+    <button id="btnCalc">Rēķināt</button>
     <button>Notīrīt</button>
+
+    <script>
+      const btnCalc = document.getElementById("btnCalc");
+
+      btnCalc.addEventListener("click", handleClick);
+      function handleClick(){
+        console.log("clicked");
+      }
+    </script>
   </body>
 </html>
