@@ -12,12 +12,34 @@
     <input type="text" id="num2" />
     <button id="myBtn">Rēķināt</button>
     <script>
-      document.getElementById("myBtn").addEventListener("click", displayDate);
+      document.getElementById("myBtn").addEventListener("click", handleClick());
 
-      const element = document.getElementById("num1");
-      const element2 = document.getElementById("op");
-      const element3 = document.getElementById("num2");
-      
+      const num1input = document.getnum1inputById("num1");
+      const opInput = document.getnum1inputById("op");
+      const num2input = document.getnum1inputById("num2");
+
+      function handleClick() {
+        let operatorValue = opInput.value;
+        
+
+
+        switch (operatorValue) {
+          case "+":
+            result = num1input + num2input;
+            break;
+          case "-":
+            result = num1input - num2input;
+            break;
+          case "*":
+            result = num1input * num2input;
+            break;
+          case "/":
+            result = num1input / num2input;
+          default:
+            break;
+        }
+        console.log(result);
+      }
     </script>
   </body>
 </html>
