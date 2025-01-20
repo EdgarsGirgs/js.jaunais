@@ -11,7 +11,7 @@
     <input type="text" id="op" />
     <input type="text" id="num2" />
     <button id="myBtn">Reiķināt</button>
-    
+    <p></p>
     <script>
       document.getElementById("myBtn").addEventListener(click, handleclick);
 
@@ -54,7 +54,6 @@
         ];
       }
       function displayErrors(errorsArray) {
-
         for (let i = 0; i < errorsArray.length; i++) {
           outputContainer.innerHTML += errorsArray[i] + "<br>";
         }
