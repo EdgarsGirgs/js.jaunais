@@ -13,6 +13,31 @@
     <button id="myBtn">Reiķināt</button>
     <script>
       document.getElementById("myBtn").addEventListener(click, handleclick);
+
+      const num1input = document.getElementById(num1);
+      const opinput = document.getElementById(op);
+      const num2input = document.getElementById(num2);
+
+      function handleClick() {
+        let operatorValue = opinput.value;
+      }
+      switch (operatorValue) {
+        case "+":
+          result = num1input + num2input;
+          break;
+        case "-":
+          result = num1input - num2input;
+          break;
+        case "*":
+          result = num1input * num2input;
+          break;
+        case "/":
+          result = num1input / num2input;
+          break;
+
+        default:
+          break;
+      }
     </script>
   </body>
 </html>
