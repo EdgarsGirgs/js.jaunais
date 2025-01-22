@@ -20,11 +20,21 @@
           return;
         }
         const li = document.createElement("li");
-        li.innerHTML = `${userinput.value} <button>Dzēst</button>`;
+        //li.innerHTML = `${userinput.value} <button data-action="delete">Dzēst</button>`;
+
+        const btnDelete = document.createElement("button");
         ul.appendChild(li);
         userinput.value = "";
       });
 
+      ul.addEventListener("click", handleClickUL);
+
+      function handleClickUL(event) {
+        let target = event.target;
+        console.log(event);
+        if (event.target.dataset.action !== "delete") return;
+        target.parentNode.remove();
+      }
     </script>
   </body>
 </html>

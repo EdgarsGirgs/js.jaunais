@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>To do list</h1>
+    <input type="text" id="task-text" />
+    <button onclick="clearField()">Pievienot</button>
+    <ul></ul>
+    <script>
+      const btn = document.querySelector("button");
+      const ul = document.querySelector("ul");
+      const userinput = document.getElementById("task-text");
+
+      btn.addEventListener("click", function () {
+        if (userinput.value === "") {
+          return;
+        }
+        const li = document.createElement("li");
+        li.innerHTML = `${userinput.value} <button data-action="delete">Dzēst</button>`;
+        ul.appendChild(li);
+        userinput.value = "";
+      });
+
+      ul.addEventListener("click", handleClickUL);
+
+      function handleClickUL(event) {
+        let target = event.target;
+        console.log(event);
+        if (event.target.dataset.action !== "delete") return;
+        target.parentNode.remove();
+      }
+    </script>
+  </body>
+</html>
