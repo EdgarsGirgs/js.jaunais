@@ -8,10 +8,27 @@
 <body>
     <h1>ĶMI Kalkulators</h1>
     <label for="">Augums (metros)</label name = ag>
-    <input type="number" name = ag>
+    <input type="number" name = ag id="augums">
     <label for="">Svars(kg)</label name = sv>
-    <input type="number" name = sv>
-    <button>Aprēķināt ĶMI</button>
-    
+    <input type="number" name = sv id="svars">
+    <button id="myBtn">Aprēķināt ĶMI</button>
+    <script>
+        document.getElementById("myBtn").addEventListener("click", handleClick);
+        
+      const augumsInput = document.getnum1inputById("augums");
+      const svarsInput = document.getnum1inputById("svars");
+      function handleClick() {
+        let operatorValue = opInput.value;
+        bmi =  augumsInput / (svarsInput * svarsInput)
+      switch (key) {
+        case bmi < 18.5:
+        
+            
+            break;
+      
+        default:
+            break;
+      }
+    </script>
 </body>
 </html>
