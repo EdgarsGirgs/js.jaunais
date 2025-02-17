@@ -48,7 +48,7 @@ Zem vēstures ir jāizvada visu ierakstu vidējais rezultāts procentos. -->
       <option value="letter">Burtu vērtējums (A, B, C utt.)</option></select
     ><br /><br />
 
-    <button>Aprēķināt vērtējumu</button>
+    <button id="calculate-btn">Aprēķināt vērtējumu</button>
 
     <script>
       const calculateBtn = document.getElementById("calculate-btn");
@@ -95,7 +95,7 @@ Zem vēstures ir jāizvada visu ierakstu vidējais rezultāts procentos. -->
         resultDiv.innerHTML = grade;
       }
 
-      calculateBtn.addEventListener("click", handleClick());
+      calculateBtn.addEventListener("click", handleClick);
 
       //   === TERMINI un KODA PIEMĒRI ===
       // input, button, id, class, script, const, let, document, querySelector, getElementById,
