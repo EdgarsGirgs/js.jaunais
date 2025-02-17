@@ -46,6 +46,7 @@ Zem vēstures ir jāizvada visu ierakstu vidējais rezultāts procentos. -->
     <select id="grading-scheme">
       <option value="percentage">Procentuālā vērtība (0-100)</option>
       <option value="letter">Burtu vērtējums (A, B, C utt.)</option></select
+      div id = "result"></div>
     ><br /><br />
 
     <button id="calculate-btn">Aprēķināt vērtējumu</button>
@@ -59,8 +60,8 @@ Zem vēstures ir jāizvada visu ierakstu vidējais rezultāts procentos. -->
 
       function handleClick() {
         const name = nameInput.value;
-        const points = parseFloat(pointsInput);
-        const maxPoints = parseFloat(maxPointsInput);
+        const points = parseFloat(pointsValue);
+        const maxPoints = parseFloat(maxPointsValue);
         const gradingScheme = gradingSchemeSelect.value;
 
         // Validate inputs
@@ -74,7 +75,7 @@ Zem vēstures ir jāizvada visu ierakstu vidējais rezultāts procentos. -->
           return;
         }
 
-        const grade = "";
+        let grade = calcGrade(gradingScheme, points, maxPoints);
         if (gradingScheme === "procenti") {
           const percentage = (points / maxPoints) * 100;
           grade = `Jūsu procentuālā vērtība ir: ${percentage.toFixed(2)}%`;
@@ -94,6 +95,7 @@ Zem vēstures ir jāizvada visu ierakstu vidējais rezultāts procentos. -->
 
         resultDiv.innerHTML = grade;
       }
+      function calcGrade(schema, points, maxPoints)
 
       calculateBtn.addEventListener("click", handleClick);
 
