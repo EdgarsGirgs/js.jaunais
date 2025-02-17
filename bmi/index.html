@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>ĶMI Kalkulators</h1>
-    <label for="">Augums (metros)</label name = ag>
-    <input type="number" name = ag id="augums">
-    <label for="">Svars(kg)</label name = sv>
-    <input type="number" name = sv id="svars">
-    <button id="myBtn">Aprēķināt ĶMI</button>
-    <script>
-        document.getElementById("myBtn").addEventListener("click", handleClick);
-        
-      const augumsInput = document.getnum1inputById("augums");
-      const svarsInput = document.getnum1inputById("svars");
-      function handleClick() {
-        let operatorValue = opInput.value;
-        bmi =  augumsInput / (svarsInput * svarsInput)
-      switch (key) {
-        case bmi < 18.5:
-        
-            
-            break;
-      
-        default:
-            break;
+  </head>
+  <body>
+    <h1>Kalkulators prieks svara</h1>
+    <label for="number1">Ievadiet savu svaru</label>
+    <input type="number" name="numb1" id="number1" />
+    <label for="number2">Ievadiet savu augumu</label>
+    <input type="number" name="numb2" id="number2" />
+    <input type="button" value="button" , id="button" />
+    <br />
+    <p id="parag"></p>
+    <br />
+    <br />
+    <ul id="lists"></ul>
+  </body>
+  <script>
+    const numb1 = document.getElementById("number1");
+    const numb2 = document.getElementById("number2");
+    const btn = document.getElementById("button");
+    const p = document.getElementById("parag");
+    const list = document.getElementById("lists");
+
+    function handleClick() {
+      console.log("asjdsald");
+
+      kalk();
+      history();
+    }
+
+    function kalk() {
+      let numby1 = parseFloat(numb1.value);
+      let numby2 = parseFloat(numb2.value);
+
+      let height = numby2 * numby2;
+
+      let result = numby1 / height;
+
+      if (result <= 18.5) {
+        p.innerHTML =
+          result.toFixed(2) + ":" + " " + "Nepietiekama ķermeņa masa";
       }
-    </script>
-</body>
+      if ((result <= 18.5, result <= 24.99)) {
+        p.innerHTML = result.toFixed(2) + ":" + " " + "Normāla ķermeņa masa";
+      }
+      if ((result <= 25, result <= 29.99)) {
+        p.innerHTML = result.toFixed(2) + ":" + " " + "Lieka ķermeņa masa";
+      }
+      if (result > 30) {
+        p.innerHTML = result.toFixed(2) + ":" + " " + "Aptaukošanās";
+      }
+    }
+
+    function history() {
+      let numby1 = parseFloat(numb1.value);
+      let numby2 = parseFloat(numb2.value);
+
+      let height = numby2 * numby2;
+
+      let result = numby1 / height;
+
+      const li = document.createElement("li");
+      li.innerHTML = result;
+      list.appendChild(li);
+    }
+
+    btn.addEventListener("click", handleClick);
+  </script>
 </html>

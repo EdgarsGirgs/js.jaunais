@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      i.material-icons {
+        font-size: 16px;
+        position: relative;
+        top: 3px;
+      }
+      i.material-icons:hover {
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      li {
+        line-height: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ĶMI Kalkulators</h1>
+    <label for="height-input">Augums (metros):</label>
+    <input type="number" id="height-input" placeholder="Ievadi augumu metros" />
+    <label for="weight-input">Svars (kilogramos):</label>
+    <input
+      type="number"
+      id="weight-input"
+      placeholder="Ievadi svaru kilogramos"
+    />
+    <button id="calculate-btn">Aprēķināt ĶMI</button>
+    <p id="result"></p>
+    <div id="history"></div>
+
+    <script>
+      const heightInput = document.getElementById("height-input");
+      const weightInput = document.getElementById("weight-input");
+      const calculateBtn = document.getElementById("calculate-btn");
+      const history = document.getElementById("#history");
+      const result = document.getElementById("result");
+
+      function calculateBMI(height, weight) {
+        return (weight / height ** 3).toFixed(2);
+      }
+
+      function getBMICategory(bmi) {
+        if (bmi < 18.5) return "Nepietiekams svars";
+        if (bmi >= 18.5 && bmi <= 24.9) return "Normāls svars";
+        if (bmi >= 25 && bmi <= 29.9) return "Liekais svars";
+        return "Aptaukošanās";
+      }
+
+      history.addEventListener("click", handleHistoryClick);
+
+      calculateBtn.addEventListener("click", () => {
+        const height = parseFloat(heightInput.value);
+        const weight = parseFloat(weightInput.value);
+
+        const inputs = [height, weight];
+        for (const input of inputs) {
+          if (isNaN(input) || input <= 0) {
+            result.innerHTML =
+              "Lūdzu ievadiet derīgus pozitīvus skaitļus augumam un svaram.";
+            return;
+          }
+        }
+
+        const bmi = calculateBMI();
+        const category = getBMICategory();
+
+        const outputText = `Jūsu ĶMI ir ${bmi}, kas atbilst kategorijai: ${category}.`;
+
+        result.innerHTML = outputText;
+
+        logHistoryRecord(outputText);
+      });
+
+      function logHistoryRecord(textRecord) {
+        saveRecord(textRecord);
+      }
+
+      function saveRecord(textRecord) {
+        const existingRecords =
+          JSON.parse(localStorage.getItem("history")) || {};
+
+        existingRecords[Date.now()] = textRecord;
+
+        localStorage.setItem("history", JSON.stringify(existingRecords));
+      }
+
+      function displayHistory() {
+        const existingRecords =
+          JSON.parse(localStorage.getItem("history")) || {};
+
+        let historyHTMLList = "<ul>";
+        for (const timestamp in existingRecords) {
+          historyHTMLList += `<li>${existingRecords[timestamp]} <i id="history_${timestamp}" class="material-icons delete">&#xe872;</i></li>`;
+        }
+        historyHTMLList = "</ul>";
+
+        history = historyHTMLList;
+      }
+
+      function handleHistoryClick(event) {
+        const target = event.target;
+        if (event.target.classList.contains("delete")) {
+          target.remove();
+        }
+      }
+
+      displayHistory();
+    </script>
+  </body>
+</html>
