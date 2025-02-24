@@ -25,6 +25,17 @@
                 opValue = op.value
                 num2Value = parseFloat (num2.Value);
             }
+            if (validationErrors.length > 0) {
+          displayErrors(validationErrors);
+        } else {
+          let result = calculateResult(
+            firstNumberValue,
+            secondNumberValue,
+            operatorValue
+          );
+          displayResult(result);
+        }
+      
             function calculateResult(n1, n2, op){
                 switch (opInput) {
                     case +:
@@ -52,14 +63,22 @@
             if (condition) {
                 
             } else {
-                
+ }
                 function displayResult(res) {
         outputContainer.innerHTML = `Rezultāts: ${res}`;
         firstNumberInput.value = "";
         secondNumberInput.value = "";
         operatorInput.value = "";
       }
-            }
+      function validateUserInput(n1, n2, op) {
+        //   return [];
+        return [
+          "Pirmais skaitlis nav pareizs",
+          "Otrais skaitlis nav pareizs",
+          "Operātors kļūdains",
+        ];
+      }
+
         </script>
 </body>
 </html>
