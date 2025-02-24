@@ -11,6 +11,8 @@
     <input type="text" id="op">
     <input type="text" id="num2">
     <button>Apreiķināt</button id="myBtn">
+        <button>Notīrīt</button>
+        <p id="output"></p>
         <script>
 
             const myBtn = document.getElementById("myBtn")
@@ -38,16 +40,16 @@
       
             function calculateResult(n1, n2, op){
                 switch (opInput) {
-                    case +:
+                    case "+":
                         num1Input + num2Input;
-                        break;
-                    case -;
+                        break
+                    case "-":
                     num1Input - num2Input;
                         break;
-                        case * ;
+                        case "*":
                         num1Input * num2Input;
                         break;
-                        case / ;
+                        case "/":
                         num1Input / num2Input;
                         break;
                     default:"Operators nederigs."
@@ -71,13 +73,18 @@
         operatorInput.value = "";
       }
       function validateUserInput(n1, n2, op) {
-        //   return [];
         return [
           "Pirmais skaitlis nav pareizs",
           "Otrais skaitlis nav pareizs",
           "Operātors kļūdains",
         ];
       }
+      
+      function displayErrors(errorsArray) {
+        for (let i = 0; i < errorsArray.length; i++) {
+          outputContainer.innerHTML += errorsArray[i] + "<br>";
+        }
+    }
 
         </script>
 </body>
