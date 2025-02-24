@@ -6,12 +6,50 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>kalkulators</h1>
     <input type="text" id="num1">
     <input type="text" id="op">
     <input type="text" id="num2">
-    <button></button >
+    <button>Apreiķināt</button id="myBtn">
         <script>
-            
+
+            const myBtn = document.getElementById("myBtn")
+            const num1Input = document.getnum1InputById("num1");
+            const opInput = document.getopInputById("op");
+            const num2Input = document.getnum2InputById("num2");
+
+            btnCalc.addEventListener("click", handleClick);
+
+            function handleClick(){
+                num1Value = parseFloat (num1.value);
+                opValue = op.value
+                num2Value = parseFloat (num2.Value);
+            }
+            function calculateResult(n1, n2, op){
+                switch (opInput) {
+                    case +:
+                        num1Input + num2Input;
+                        break;
+                    case -;
+                    num1Input - num2Input;
+                        break;
+                        case * ;
+                        num1Input * num2Input;
+                        break;
+                        case / ;
+                        num1Input / num2Input;
+                        break;
+                    default:"Operators nederigs."
+                        break;
+                }
+            }
+
+            let validationErrors = validateUserInput(
+                num1Input,
+                opInput,
+                num2Input
+            );
+            if()
         </script>
 </body>
 </html>
